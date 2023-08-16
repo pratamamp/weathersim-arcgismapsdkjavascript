@@ -1,5 +1,5 @@
 import SceneView from "@arcgis/core/views/SceneView";
-import WebScene from "@arcgis/core/WebScene
+import WebScene from "@arcgis/core/WebScene";
 import Daylight from "@arcgis/core/widgets/Daylight";
 import Expand from "@arcgis/core/widgets/Expand";
 import Weather from "@arcgis/core/widgets/Weather";
