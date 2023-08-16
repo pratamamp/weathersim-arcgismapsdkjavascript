@@ -59,6 +59,13 @@ function SceneViewer() {
               };
               floodLevel.visible = true;
               break;
+            case "noFlooding":
+              view.environment.weather = {
+                type: "cloudy",
+                cloudCover: 0.3,
+              };
+              floodLevel.visible = false;
+              break;
           }
         });
       });
