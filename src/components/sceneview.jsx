@@ -17,6 +17,32 @@ function SceneViewer() {
   });
   const mapRef = useRef(null);
 
+  function setupEnvironment(view) {
+    let floodLevel = scene.allLayers.find((layer) => {
+      return layer.title === "Flood Level";
+    });
+    const selection = document.getElementById("selection");
+    selection.addEventListener("calciteSegmentedControlChange", () => {
+      switch (selection.selectedItem.value) {
+        case "flooding":
+          view.environment.weather = {
+            type: "rainy",
+            cloudCover: 0.7,
+            preciptation: 0.3,
+          };
+          floodLevel.visible = true;
+          break;
+        case "noFlooding":
+          view.environment.weather = {
+            type: "cloudy",
+            cloudCover: 0.3,
+          };
+          floodLevel.visible = false;
+          break;
+      }
+    });
+  }
+
   useEffect(() => {
     if (mapRef.current) {
       new SceneView({
@@ -28,6 +54,9 @@ function SceneViewer() {
             type: "cloudy",
             cloudCover: 0.3,
           },
+        },
+        padding: {
+          top: 80,
         },
       }).when((view) => {
         const weatherExpand = new Expand({
@@ -44,33 +73,9 @@ function SceneViewer() {
           }),
         });
         view.ui.add([weatherExpand, dayLightExpand], "top-right");
-
-        let floodLevel = scene.allLayers.find((layer) => {
-          return layer.title === "Flood Level";
-        });
-        const selection = document.getElementById("selection");
-        selection.addEventListener("calciteSegmentedControlChange", () => {
-          switch (selection.selectedItem.value) {
-            case "flooding":
-              view.environment.weather = {
-                type: "rainy",
-                cloudCover: 0.7,
-                preciptation: 0.3,
-              };
-              floodLevel.visible = true;
-              break;
-            case "noFlooding":
-              view.environment.weather = {
-                type: "cloudy",
-                cloudCover: 0.3,
-              };
-              floodLevel.visible = false;
-              break;
-          }
-        });
       });
     }
-  }, []);
+  }, [scene]);
   return (
     <section className="w-full h-full flex items-center justify-center">
       <div ref={mapRef} className="w-full h-full"></div>
