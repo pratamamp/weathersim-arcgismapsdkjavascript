@@ -38,5 +38,5 @@ const manifestForPlugin = {
   },
 };
 export default defineConfig({
-  plugins: [react(), VitePWA({ registerType: "autoUpdate" })],
+  plugins: [react(), VitePWA(manifestForPlugin)],
 });
