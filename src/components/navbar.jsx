@@ -5,8 +5,12 @@ function Navbar() {
   const [navbar, setNavbar] = useState(false);
 
   return (
-    <nav className="absolute top-0 left-0 right-0 z-10 w-full bg-sky-500/70 shadow md:bg-sky-500/50">
-      <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-4">
+    <nav
+      className={`absolute top-0 left-0 right-0 z-10 w-full ${
+        navbar ? "bg-gray-700" : "bg-gray-700/40"
+      } shadow`}
+    >
+      <div className="justify-between px-4 mx-auto md:items-center md:flex md:px-4">
         <div>
           <div className="flex items-center justify-between py-3 md:py-5 md:block">
             <a href="#">
@@ -58,13 +62,19 @@ function Navbar() {
           >
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
               <li className="text-white hover:text-indigo-200">
-                <Link to="/">Demo 1</Link>
+                <Link to="/" replace={true}>
+                  Demo 1
+                </Link>
               </li>
               <li className="text-white hover:text-indigo-200">
-                <Link to="/demo2">Demo 2</Link>
+                <Link to="/demo2" replace={true}>
+                  Demo 2
+                </Link>
               </li>
               <li className="text-white hover:text-indigo-200">
-                <Link to="/demo3">Demo 3</Link>
+                <Link to="/demo3" replace={true}>
+                  Demo 3
+                </Link>
               </li>
             </ul>
           </div>

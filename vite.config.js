@@ -8,7 +8,7 @@ const manifestForPlugin = {
   manifest: {
     name: "weatherapp",
     short_name: "weatherapp",
-    description: "Demo Weather Simulation - Arcgis Javascript Map SDK",
+    description: "Demo Weather Simulation - Arcgis Javascript MapSDK",
     theme_color: "#ffffff",
     start_url: "/",
     icons: [
@@ -38,5 +38,5 @@ const manifestForPlugin = {
   },
 };
 export default defineConfig({
-  plugins: [react(), VitePWA(manifestForPlugin)],
+  plugins: [react(), VitePWA({ registerType: "autoUpdate" })],
 });

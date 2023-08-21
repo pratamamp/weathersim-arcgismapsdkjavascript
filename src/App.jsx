@@ -1,19 +1,18 @@
 import { Route, Routes } from "react-router-dom";
-import Navbar from "./components/navbar";
 import SceneViewer from "./components/sceneview";
-import AnimViewer from "./components/animviewer";
 import RouteViewer from "./components/routeviewer";
+import DemoPage2 from "./pages/demopage2";
+import Layout from "./components/layout";
 
 function App() {
   return (
-    <div className="relative h-screen">
-      <Navbar />
-      <Routes>
+    <Routes>
+      <Route element={<Layout />}>
         <Route path="/" element={<SceneViewer />} />
-        <Route path="/demo2" element={<AnimViewer />} />
+        <Route path="/demo2" element={<DemoPage2 />} />
         <Route path="/demo3" element={<RouteViewer />} />
-      </Routes>
-    </div>
+      </Route>
+    </Routes>
   );
 }
 
