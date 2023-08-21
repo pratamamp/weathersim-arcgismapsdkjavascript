@@ -6,6 +6,7 @@ const manifestForPlugin = {
   registerType: "prompt",
   injectRegister: "auto",
   includeAssets: ["favicon.ico", "apple-touch-icon.png", "masked-icon.svg"],
+  injectManifest: true,
   manifest: {
     name: "weatherapp",
     short_name: "weatherapp",
