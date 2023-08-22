@@ -54,10 +54,16 @@ export const initialize = (container) => {
   view.container = container;
   view
     .when()
-    .then((__) => {
+    .then(() => {
       console.log("Map and View are ready");
-      view.ui.empty("top-left");
+
       view.ui.add(new Legend({ view: view }), "bottom-left");
+      view.ui.add(
+        new Home({
+          view: view,
+        }),
+        "top-left"
+      );
       const playButton = document.getElementById("playButton");
       const sliderValue = document.getElementById("sliderValue");
       let animation = null;
@@ -104,7 +110,7 @@ export const initialize = (container) => {
         let animating = true;
         let value = startValue;
 
-        const frame = (timestamp) => {
+        const frame = () => {
           if (!animating) {
             return;
           }
