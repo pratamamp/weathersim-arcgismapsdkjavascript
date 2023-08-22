@@ -28,7 +28,7 @@ function DemoPage2() {
   return (
     <div className="w-full h-full flex flex-col">
       <div ref={mapRef} className="w-full h-[90%]"></div>
-      <div id="sliderContainer" className="esri-widget">
+      <div id="sliderContainer" className="esri-widget flex items-center">
         <span id="sliderValue"></span>
         <div id="sliderInnerContainer">
           <div id="slider"></div>

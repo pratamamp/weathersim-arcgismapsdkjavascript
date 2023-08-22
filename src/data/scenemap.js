@@ -20,17 +20,35 @@ const app = {
       cloudCover: 0.3,
     },
   },
+  ui: {
+    padding: {
+      top: 100,
+    },
+  },
 };
 
 export async function initialize(container) {
-  console.log("load init");
-
   view.container = container;
   view.when(() => {
     let floodLevel = scene.allLayers.find(function (layer) {
       return layer.title === "Flood Level";
     });
-
+    const weatherExpand = new Expand({
+      view: view,
+      content: new Weather({
+        view: view,
+      }),
+      group: "top-right",
+      expanded: false,
+    });
+    const daylightExpand = new Expand({
+      view: view,
+      content: new Daylight({
+        view: view,
+      }),
+      group: "top-right",
+    });
+    view.ui.add([weatherExpand, daylightExpand], "top-right");
     const selection = document.getElementById("selection");
     selection.addEventListener("calciteSegmentedControlChange", () => {
       switch (selection.selectedItem.value) {

@@ -1,8 +1,23 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 function Navbar() {
   const [navbar, setNavbar] = useState(false);
+  const location = useLocation();
+  const [pageTitle, setTitle] = useState(null);
+
+  useEffect(() => {
+    switch (location.pathname) {
+      case "/":
+        setTitle("Weather Simulation");
+        break;
+      case "/demo2":
+        setTitle("Building Footprints");
+        break;
+      default:
+        break;
+    }
+  }, [location]);
 
   return (
     <nav
@@ -54,6 +69,9 @@ function Navbar() {
             </div>
           </div>
         </div>
+        <span className="text-white text-xl font-semibold tracking-wide">
+          {pageTitle}
+        </span>
         <div>
           <div
             className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${

@@ -3,8 +3,8 @@ import FeatureLayer from "@arcgis/core/layers/FeatureLayer";
 import MapView from "@arcgis/core/views/MapView";
 import Slider from "@arcgis/core/widgets/Slider";
 import * as promiseUtils from "@arcgis/core/core/promiseUtils.js";
-import * as reactiveUtils from "@arcgis/core/core/reactiveUtils.js";
 import Legend from "@arcgis/core/widgets/Legend";
+import Home from "@arcgis/core/widgets/Home";
 
 const layer = new FeatureLayer({
   portalItem: {
@@ -36,9 +36,16 @@ const app = {
     snapToZoom: false,
     minScale: 72223.819286,
   },
+  ui: {
+    padding: {
+      top: 100,
+    },
+  },
 };
 
 export const view = new MapView(app);
+
+const home = new Home({ view: view });
 
 export async function initialize(container) {
   console.log("load init");
@@ -56,11 +63,12 @@ export async function initialize(container) {
           rangeLabels: true,
         },
       });
-      view.ui.empty("top-left");
+
       const sliderDiv = document.getElementById("slider");
       slider.container = sliderDiv;
       legend.view = view;
       view.ui.add(legend, "bottom-left");
+      view.ui.add(home, "top-left");
       const playButton = document.getElementById("playButton");
       const sliderValue = document.getElementById("sliderValue");
       let animation = null;
