@@ -73,7 +73,7 @@ export async function initialize(container) {
       const sliderValue = document.getElementById("sliderValue");
       let animation = null;
       slider.on("thumb-drag", inputHandler);
-      view.whenLayerView(layer).then(setupHoverTooltip);
+      // view.whenLayerView(layer).then(setupHoverTooltip);
 
       function inputHandler(event) {
         stopAnimation();

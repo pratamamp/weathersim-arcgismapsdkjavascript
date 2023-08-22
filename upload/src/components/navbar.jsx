@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import LogoSvg from "./LogoSvg";
 
 function Navbar() {
   const [navbar, setNavbar] = useState(false);
@@ -28,10 +27,10 @@ function Navbar() {
     >
       <div className="justify-between px-4 mx-auto md:items-center md:flex md:px-4">
         <div>
-          <div className="flex items-center justify-between py-3 md:py-2 md:block">
-            <div className="h-16">
-              <LogoSvg className={"h-full"} />
-            </div>
+          <div className="flex items-center justify-between py-3 md:py-5 md:block">
+            <a href="#">
+              <h2 className="text-2xl font-bold text-white">LOGO</h2>
+            </a>
             <div className="md:hidden">
               <button
                 className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
