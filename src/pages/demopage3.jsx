@@ -8,7 +8,6 @@ function DemoPage3() {
     let isLoad = true;
     const loadMap = async () => {
       console.log("load page!");
-      const { initialize } = await import("../data/");
     };
   }, []);
   return <div>DemoPage3</div>;
