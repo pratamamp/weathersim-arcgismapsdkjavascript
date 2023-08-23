@@ -1,6 +1,11 @@
-function LogoSvg({className}) {
+function LogoSvg({ className }) {
   return (
-    <svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 518 187" className={...className}>
+    <svg
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 518 187"
+      className={className}
+    >
       <mask
         id="prefix__a"
         style={{
