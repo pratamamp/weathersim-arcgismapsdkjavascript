@@ -26,6 +26,7 @@ const app = {
     },
   },
 };
+export const view = new SceneView(app);
 
 export async function initialize(container) {
   view.container = container;
@@ -76,5 +77,3 @@ export async function initialize(container) {
     view.container = null;
   };
 }
-
-export const view = new SceneView(app);
