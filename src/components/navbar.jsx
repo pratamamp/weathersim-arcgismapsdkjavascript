@@ -29,9 +29,12 @@ function Navbar() {
       <div className="justify-between px-4 mx-auto md:items-center md:flex md:px-4">
         <div>
           <div className="flex items-center justify-between py-3 md:py-2 md:block">
-            <div className="h-16">
-              <LogoSvg className={"h-full"} />
+            <div className="h-12 w-20">
+              <LogoSvg className="h-full" />
             </div>
+            <span className="text-white text-xl font-semibold tracking-wide md:hidden">
+              {pageTitle}
+            </span>
             <div className="md:hidden">
               <button
                 className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
@@ -70,7 +73,7 @@ function Navbar() {
             </div>
           </div>
         </div>
-        <span className="text-white text-xl font-semibold tracking-wide">
+        <span className="text-white text-xl font-semibold tracking-wide hidden md:block">
           {pageTitle}
         </span>
         <div>

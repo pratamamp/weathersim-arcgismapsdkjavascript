@@ -8,9 +8,25 @@ function DemoPage3() {
     let isLoad = true;
     const loadMap = async () => {
       console.log("load page!");
+      const { initialize } = await import("../data/tracker");
+      await initialize(mapRef.current);
+      isLoad = false;
+      return true;
+    };
+
+    if (appRef.current === null && isLoad) {
+      appRef.current = loadMap();
+    }
+
+    return () => {
+      isLoad = false;
     };
   }, []);
-  return <div>DemoPage3</div>;
+  return (
+    <div className="w-full h-full">
+      <div ref={mapRef} className="w-full h-full"></div>
+    </div>
+  );
 }
 
 export default DemoPage3;

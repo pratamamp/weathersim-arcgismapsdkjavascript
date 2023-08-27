@@ -1,5 +1,4 @@
-import SceneView from "@arcgis/core/views/SceneView";
-import Track from "@arcgis/core/widgets/Track";
+import MapView from "@arcgis/core/views/MapView";
 import Map from "@arcgis/core/Map";
 
 const map = new Map({
@@ -15,18 +14,6 @@ const app = {
   },
 };
 
-const track = new Track({
-  goToLocationEnabled: false, // disable this since we want to control what happens after our location is acquired
-});
-
-function getHeading(point, oldPoint) {
-  // get angle between two points
-  const angleInDegrees =
-    (Math.atan2(point.y - oldPoint.y, point.x, oldPoint.x) * 180) / Math.PI;
-
-  return -90 + angleInDegrees;
-}
-
-export const view = new SceneView(app);
+export const view = new MapView(app);
 
 export async function initialize(container) {}
