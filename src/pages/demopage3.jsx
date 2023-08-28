@@ -7,7 +7,7 @@ function DemoPage3() {
   useEffect(() => {
     let isLoad = true;
     const loadMap = async () => {
-      console.log("load page!");
+      console.log("-- LOAD TRACK ROUTING demo --");
       const { initialize } = await import("../data/tracker");
       await initialize(mapRef.current);
       isLoad = false;

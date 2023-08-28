@@ -15,6 +15,9 @@ function Navbar() {
       case "/demo2":
         setTitle("Building Footprints");
         break;
+      case "/demo3":
+        setTitle("Tracking Route");
+        break;
       default:
         break;
     }

@@ -9,7 +9,7 @@ function DemoPage2() {
     let isLoad = true;
 
     const loadMap = async () => {
-      console.log("load page");
+      console.log("-- LOAD BUILDINGPRINT demo --");
       const { initialize } = await import("../data/webmap");
       await initialize(mapRef.current);
       isLoad = false;

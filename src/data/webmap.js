@@ -48,8 +48,6 @@ export const view = new MapView(app);
 const home = new Home({ view: view });
 
 export async function initialize(container) {
-  console.log("load init");
-
   view.container = container;
   view
     .when()
