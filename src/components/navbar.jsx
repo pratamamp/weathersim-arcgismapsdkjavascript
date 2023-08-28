@@ -29,7 +29,7 @@ function Navbar() {
       <div className="justify-between px-4 mx-auto md:items-center md:flex md:px-4">
         <div>
           <div className="flex items-center justify-between py-3 md:py-2 md:block">
-            <div className="h-12 w-20">
+            <div className="h-16 w-20">
               <LogoSvg className="h-full" />
             </div>
             <span className="text-white text-xl font-semibold tracking-wide md:hidden">
